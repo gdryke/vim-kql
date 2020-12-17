@@ -1,0 +1,1 @@
+Help doc for vim-kql. Work in progress.

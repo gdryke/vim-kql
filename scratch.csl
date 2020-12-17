@@ -1,0 +1,30 @@
+requests
+| where timestamp > ago(1d)
+| where operation_Name contains "extension"
+| project operation_Name, timestamp
+| summarize count() by bin(timestamp, 1m)
+| render timechart
+
+requests 
+| where timestamp > ago(1d) 
+| where operation_Name contains "extension"
+| take 10
+
+requests
+| where timestamp > ago(30d)
+| where url contains "ad20ebfa-d437-49d1-8e99-5631bdecdfc0"
+| order by timestamp asc
+| project operation_Id
+| join kind = inner (
+    traces
+    | where timestamp > ago(30d)
+    | order by timestamp asc
+    | project timestamp, operation_Id, message )
+on operation_Id
+| project timestamp, message
+| order by timestamp asc
+| take 10
+
+requests | take 1
+
+// sample comment 10d
