@@ -1,6 +1,10 @@
-if !exists("g:kql_command")
-    let g:kql_command = "az monitor app-insights query -a '" . $KUSTO_APP_ID . "' --analytics-query"
+if !exists("g:ai_command")
+    let g:ai_command = "az monitor app-insights query -a '" . $KUSTO_APP_ID . "' --analytics-query"
 endif
+
+function! GetCommand()
+    return "kusto-cli -c '" . g:kusto_cluster . "' -d '" . g:kusto_db . "' -q"
+endfunction
 
 function! PreviousBlankLine(lnum)
     let current = a:lnum
@@ -40,7 +44,7 @@ function! KqlRunQueryUnderCursor()
     silent !clear
     let query = GetQueryContent()
     echom "Running query: " . query
-    let cmd = "!" . g:kql_command . " '" . query . "' "
+    let cmd = "!" . GetCommand() . " '" . query . "' "
     echom "Full command: " . cmd
     execute cmd
 endfunction
