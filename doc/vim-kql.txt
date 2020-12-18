@@ -1,1 +1,108 @@
-Help doc for vim-kql. Work in progress.
+*vim-kql.txt* functionality for kusto and the kusto query language (kql)
+
+              /           /         / ~
+                _ _  ___ (     ___ (  ~
+         \  )| | | )     |___)|   )|  ~
+          \/ | |  /      | \  |__/||  ~
+                                  |   ~
+
+====================================================================
+CONTENTS                                            *KqlContents* *kql*
+
+    1. Usage ..................... |KqlUsage|
+    2. Mappings .................. |KqlMappings|
+    2. Configuration ............. |KqlConfiguration|
+    3. License ................... |KqlLicense|
+    4. Bugs ...................... |KqlBugs|
+    5. Contributing .............. |KqlContributing|
+    6. Changelog ................. |KqlChangelog|
+    7. Credits ................... |KqlCredits|
+
+
+====================================================================
+Section 1: Usage                                       *KqlUsage*
+
+This plugin provides syntax highlighting for Kusto Query Language (kql) files.
+It also provides some basic folding for your queries.
+
+One of the biggest pieces of functionality is the ability to execute your Kusto queries right from within vim.
+To do this, you need kusto-cli: https://github.com/gdryke/kusto-cli
+
+====================================================================
+Section 2: Mappings                                    *KqlMappings*
+
+The main mapping is: <localleader>r to run the query in a new window.
+There is also: <localleader>s to run the query in an overlay window, for temporary/rapid iteration.
+
+====================================================================
+Section 3: Configuration                               *KqlConfiguration*
+
+There are two key variables you can override: 'g:kusto_cluster' and 'g:kusto_db'.
+
+The cluster variable controls the cluster your queries will run on, use the full URL.
+The db variable is the database within that cluster.
+
+You can switch these in an active session with the follow: >
+    let g:kusto_cluster = "https://my-cool-cluster.kusto.windows.net/"
+    let g:kusto_db ="my-cool-db"
+<
+
+These can also be placed in your .vimrc file.
+
+====================================================================
+Section 4: License                                     *KqlLicense*
+
+MIT: https://github.com/gdryke/vim-kql/blob/main/LICENSE
+
+====================================================================
+Section 5: Bugs                                        *KqlBugs*
+
+- Single quotes in queries do not work right now
+- Many, many highlights are missing
+
+====================================================================
+Section 6: Contributing                                *KqlContributing*
+
+Open to contributions, just open a PR on the repo!
+https://github.com/gdryke/vim-kql/
+
+====================================================================
+Section 7: Changelog                                   *KqlChangelog*
+
+0.3 (2020-12-18)~
+New:~
+    * Split window with query results!
+    * Added this doc
+    * Moved everything to autoload
+
+Changed:~
+    * <localleader>r changed to the split window
+        * Use <localleader>s for the same window/overwriting option
+
+0.2 (2020-12-17)~
+New:~
+    * Works with Kusto using kusto-cli: https://github.com/gdryke/kusto-cli
+    * You can override the cluster url and DB in your `.vimrc` or in an open window with the following variables:
+        * `g:kusto_cluster`
+        * `g:kusto_db`
+
+Removed:~
+    * AppInsights stuff removed for now
+
+0.1 (2020-12-17)~
+New:~
+    * All of it!
+
+Template~
+New:~
+Changed:~
+Removed:~
+Fixed:~
+
+====================================================================
+Section 8: Credits                                     *KqlCredits*
+
+Huge shoutout to "Learn Vimscript the Hard Way", the plugin guide (the whole site really) was amazing!
+https://learnvimscriptthehardway.stevelosh.com/chapters/42.html
+
+vim:tw=78:ts=8:ft=help:norl:
