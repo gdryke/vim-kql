@@ -24,3 +24,4 @@ I'm following this tutorial: https://learnvimscriptthehardway.stevelosh.com/chap
   - Might be handled by moving to newline instead of space on the join? ([of interest](https://stackoverflow.com/questions/10526011/does-vimscript-allow-multi-line-strings))
 - [ ] Handle single quotes in a query (need to escape)
 - [ ] better error handling, if it exists from az cli?
+- [ ] actually fill out doc
