@@ -11,12 +11,12 @@ CONTENTS                                            *KqlContents* *kql*
 
     1. Usage ..................... |KqlUsage|
     2. Mappings .................. |KqlMappings|
-    2. Configuration ............. |KqlConfiguration|
-    3. License ................... |KqlLicense|
-    4. Bugs ...................... |KqlBugs|
-    5. Contributing .............. |KqlContributing|
-    6. Changelog ................. |KqlChangelog|
-    7. Credits ................... |KqlCredits|
+    3. Configuration ............. |KqlConfiguration|
+    4. License ................... |KqlLicense|
+    5. Bugs ...................... |KqlBugs|
+    6. Contributing .............. |KqlContributing|
+    7. Changelog ................. |KqlChangelog|
+    8. Credits ................... |KqlCredits|
 
 
 ====================================================================
