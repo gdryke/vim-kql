@@ -1,5 +1,8 @@
 ActivityLog
-| where Command contains "Health"
+| where PreciseTimeStamp > ago(1d)
+| where Command contains "Health" // test comment
+//| where Command in ('Health') // test comment
+| extend NewThing=tolong(ExecutionTime)
 | project PreciseTimeStamp, Tenant, RoleInstance, Service, Application, Command, ActivityStatus
 | take 10
 

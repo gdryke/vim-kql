@@ -70,6 +70,8 @@ https://github.com/gdryke/vim-kql/
 Section 7: Changelog                                   *KqlChangelog*
 
 0.4 (2020-12-21)~
+New:~
+    * Lots of new keywords, mostly scalar functions. Definitely not close to all though
 Changed:~
     * Now sends queries multi-line
 Fixed:
