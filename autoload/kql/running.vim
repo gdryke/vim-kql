@@ -33,14 +33,20 @@ function! GetQueryContent()
     let currentLine = line(".")
     let previousBlankLine = PreviousBlankLine(currentLine)
     let nextBlankLine = NextBlankLine(currentLine)
-    return join(getline(previousBlankLine, nextBlankLine))
+    let lines = join(getline(previousBlankLine, nextBlankLine), "\n")
+    echom lines
+    let sub = substitute(lines, '"', '\\\"', "g")
+    echom lines
+    echom sub
+    return sub
+    " return join(getline(previousBlankLine, nextBlankLine), "\n")
 endfunction
 
 function! kql#running#KqlRunQueryUnderCursorSameWindow()
     silent !clear
     let query = GetQueryContent()
     echom "Running query: " . query
-    let cmd = "!" . GetCommand() . " '" . query . "' "
+    let cmd = "!" . GetCommand() . " \"" . query . "\" "
     echom "Full command: " . cmd
     execute cmd
 endfunction
@@ -48,7 +54,8 @@ endfunction
 function! kql#running#KqlRunQueryUnderCursor()
     silent !clear
     let query = GetQueryContent()
-    let cmd = GetCommand() . " '" . query . "' "
+    let cmd = GetCommand() . " \"" . query . "\" "
+    echom cmd
     let results = systemlist(cmd)
 
    " Open a new split and set it up.

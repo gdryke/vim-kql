@@ -69,6 +69,13 @@ https://github.com/gdryke/vim-kql/
 ====================================================================
 Section 7: Changelog                                   *KqlChangelog*
 
+0.4 (2020-12-21)~
+Changed:~
+    * Now sends queries multi-line
+Fixed:
+    * Can use comments now!
+    * Single and double quotes should be working in general cases (kusto level escapes might still be broken, ie already escaped quotes in a where clause or something)
+
 0.3 (2020-12-18)~
 New:~
     * Split window with query results!
